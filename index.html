@@ -24,7 +24,21 @@ nav a:hover,nav a.active{color:var(--blue)}
 .search button{width:52px;border:0;background:var(--blue);color:#fff;font-size:20px;cursor:pointer}
 .tools{display:flex;align-items:center;gap:18px}
 .tool{position:relative;border:1px solid #dce5f2;border-radius:50%;width:39px;height:39px;display:grid;place-items:center;font-size:20px;background:#fff;cursor:pointer}
-.count{position:absolute;right:-4px;top:-5px;background:#f04452;color:white;border-radius:20px;min-width:17px;height:17px;font-size:10px;display:grid;place-items:center;padding:0 4px}
+ .count{position:absolute;right:-4px;top:-5px;background:#f04452;color:white;border-radius:20px;min-width:17px;height:17px;font-size:10px;display:grid;place-items:center;padding:0 4px}
+.account-btn{border:1px solid #0866f5;background:#fff;color:#0866f5;border-radius:22px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+.account-btn:hover{background:#f1f7ff}
+.auth-overlay{display:none;position:fixed;inset:0;background:#10182788;z-index:12;align-items:center;justify-content:center;padding:16px}
+.auth-box{width:min(420px,100%);background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 60px #0003}
+.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.auth-top h2{margin:0;font-size:22px}
+.auth-tabs{display:flex;gap:8px;margin:16px 0}
+.auth-tabs button{flex:1;border:1px solid #dce4f0;background:#f7faff;padding:10px;border-radius:9px;font-weight:800;color:#344054;cursor:pointer}
+.auth-tabs button.active{background:#0866f5;color:#fff;border-color:#0866f5}
+.auth-box label{display:block;font-size:12px;font-weight:800;margin:12px 0 5px}
+.auth-box input{width:100%;padding:12px;border:1px solid #dce4f0;border-radius:9px;font:14px Arial}
+.auth-submit{width:100%;margin-top:16px;border:0;border-radius:9px;background:#0866f5;color:#fff;padding:12px;font-weight:800;cursor:pointer}
+.auth-message{font-size:12px;line-height:1.5;color:#475467;margin-top:12px;min-height:18px}
+.auth-note{font-size:10px;color:#8792a2;line-height:1.5;margin-top:12px}
 main{max-width:1450px;margin:auto;padding:18px 3.2% 55px}
 .hero{min-height:292px;border-radius:18px;overflow:hidden;position:relative;display:flex;align-items:center;padding:35px 7%;background:linear-gradient(105deg,#f5f9ff 0%,#eaf4ff 47%,#c8e6ff 100%);border:1px solid #e2efff}
 .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:16%;top:-300px;background:#a8d9ff88}
@@ -96,7 +110,7 @@ footer{text-align:center;padding:20px;color:#8792a2;font-size:11px;border-top:1p
  <a class="logo" href="#"><span class="logo-mark">✓</span>Shop<span>Nova</span></a>
  <nav><a class="active" href="#">Home</a><a href="#products">Shop</a><a href="#products">New Arrivals</a><a href="#products">Deals</a><a href="#about">About</a></nav>
  <div class="search"><input id="search" placeholder="Search for products..." aria-label="Search products"><button onclick="render()" aria-label="Search">⌕</button></div>
- <div class="tools"><button class="tool" title="Wishlist" aria-label="Wishlist" onclick="showWishlist()">♡</button><button class="tool" title="Cart" aria-label="Cart" onclick="openCart()">🛒<span class="count" id="count">0</span></button></div>
+ <div class="tools"><button class="account-btn" id="accountBtn" onclick="openAuth()">Login / Sign Up</button><button class="tool" title="Wishlist" aria-label="Wishlist" onclick="showWishlist()">♡</button><button class="tool" title="Cart" aria-label="Cart" onclick="openCart()">🛒<span class="count" id="count">0</span></button></div>
 </header>
 <main>
  <section class="hero">
@@ -129,7 +143,78 @@ footer{text-align:center;padding:20px;color:#8792a2;font-size:11px;border-top:1p
 </main>
 <footer>© 2026 ShopNova. Demo store — product details and prices are sample content.</footer>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><div class="panel"><div class="panelhead"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart"></div><div class="total"><span>Total</span><span id="total">Rs. 0</span></div><h3>Cash on Delivery</h3><form onsubmit="checkout(event)"><label>Your name</label><input required placeholder="Full name"><label>Phone</label><input required type="tel" placeholder="03XXXXXXXXX"><label>Address</label><textarea required rows="3" placeholder="Delivery address"></textarea><button class="add">Place Demo Order</button><p style="font-size:10px;color:#8792a2">Demo only. This form does not send a real order or payment.</p></form></div></div>
+
+<div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuth()">
+ <section class="auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="auth-top"><h2 id="authTitle">Your ShopNova Account</h2><button class="close" type="button" onclick="closeAuth()">×</button></div>
+  <div class="auth-tabs"><button type="button" id="loginTab" class="active" onclick="setAuthMode('login')">Login</button><button type="button" id="signupTab" onclick="setAuthMode('signup')">Sign Up</button></div>
+  <form id="authForm">
+   <label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com">
+   <label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters">
+   <button class="auth-submit" id="authSubmit" type="submit">Login</button>
+  </form>
+  <p class="auth-message" id="authMessage" aria-live="polite"></p>
+  <p class="auth-note">Use your own email. Never share your password. New accounts may need email confirmation before login.</p>
+ </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+// Add your ShopNova Supabase Project URL and publishable (anon) key below.
+// Never put a service_role / secret key in website code.
+const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE";
+let supabaseClient = null;
+let authMode = "login";
+
+function initSupabase(){
+  if(!window.supabase || SUPABASE_URL.includes("PASTE_") || SUPABASE_ANON_KEY.includes("PASTE_")) return false;
+  if(!supabaseClient) supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return true;
+}
+function openAuth(){document.getElementById("authOverlay").style.display="flex";document.getElementById("authMessage").textContent="";}
+function closeAuth(){document.getElementById("authOverlay").style.display="none";}
+function setAuthMode(mode){
+  authMode=mode;
+  document.getElementById("loginTab").classList.toggle("active",mode==="login");
+  document.getElementById("signupTab").classList.toggle("active",mode==="signup");
+  document.getElementById("authSubmit").textContent=mode==="login"?"Login":"Create account";
+  document.getElementById("authPassword").autocomplete=mode==="login"?"current-password":"new-password";
+  document.getElementById("authMessage").textContent="";
+}
+function updateAccountButton(user){
+  const btn=document.getElementById("accountBtn");
+  if(user){btn.textContent="Sign Out";btn.onclick=signOutShopNova;btn.title=user.email||"Signed in";}
+  else{btn.textContent="Login / Sign Up";btn.onclick=openAuth;btn.title="Customer account";}
+}
+async function signOutShopNova(){
+  if(!initSupabase()){alert("Supabase setup is not complete yet.");return;}
+  const {error}=await supabaseClient.auth.signOut();
+  if(error) alert(error.message); else updateAccountButton(null);
+}
+document.getElementById("authForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+  const message=document.getElementById("authMessage");
+  const email=document.getElementById("authEmail").value.trim();
+  const password=document.getElementById("authPassword").value;
+  if(!initSupabase()){message.textContent="Supabase setup is not complete. Add your Project URL and publishable/anon key in the code first.";return;}
+  const submit=document.getElementById("authSubmit");submit.disabled=true;submit.textContent="Please wait...";message.textContent="";
+  try{
+    if(authMode==="signup"){
+      const {data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:window.location.origin}});
+      if(error) throw error;
+      if(data.session){message.textContent="Account created and you are signed in.";updateAccountButton(data.user);}
+      else{message.textContent="Account created. Check your email for the confirmation link, then log in." ;}
+    }else{
+      const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+      if(error) throw error;
+      message.textContent="Login successful. Welcome to ShopNova!";updateAccountButton(data.user);
+      setTimeout(closeAuth,900);
+    }
+  }catch(err){message.textContent=err.message||"Something went wrong. Please try again.";}
+  finally{submit.disabled=false;submit.textContent=authMode==="login"?"Login":"Create account";}
+});
+
 const products=[
 {id:1,name:'Wireless Earbuds',desc:'Clear sound for music, calls and everyday use.',price:2999,old:4999,emoji:'🎧',tag:'Best Seller'},
 {id:2,name:'Smart Watch',desc:'A modern everyday watch with useful features.',price:3499,old:5499,emoji:'⌚',tag:'New Arrival'},
@@ -151,6 +236,12 @@ function change(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];up
 function openCart(){document.getElementById('overlay').style.display='flex'}function closeCart(){document.getElementById('overlay').style.display='none'}
 function checkout(e){e.preventDefault();alert('Demo checkout only. No real order has been sent.');cart={};update();closeCart();e.target.reset()}
 document.getElementById('search').addEventListener('input',render);render();update();
+(async function restoreAuthSession(){
+  if(!initSupabase()) return;
+  const {data:{session}}=await supabaseClient.auth.getSession();
+  updateAccountButton(session?.user||null);
+  supabaseClient.auth.onAuthStateChange((_event,session)=>updateAccountButton(session?.user||null));
+})();
 </script>
 </body>
 </html>
