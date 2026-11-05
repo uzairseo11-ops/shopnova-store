@@ -6,144 +6,78 @@
 <meta name="theme-color" content="#ffffff">
 <title>ShopNova — Smart Shopping, Better Living</title>
 <style>
-:root{--blue:#0866f5;--blue2:#19a9ff;--ink:#101827;--muted:#667085;--line:#e6ebf2;--soft:#f4f8ff;--green:#079b63}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-a{color:inherit;text-decoration:none}
-.topbar{height:34px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;background:#f8faff;border-bottom:1px solid var(--line);font-size:11px;color:#344054}
-.topbar strong{color:var(--blue)}
-header{height:70px;padding:0 4%;display:flex;align-items:center;gap:30px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4}
-.logo{font-size:27px;font-weight:900;letter-spacing:-1.1px;white-space:nowrap;color:#101827}.logo span{color:var(--blue)}
-.logo-mark{display:inline-grid;place-items:center;width:32px;height:32px;margin-right:7px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-size:20px;vertical-align:-3px}
-nav{display:flex;align-items:center;gap:25px;white-space:nowrap}
-nav a{font-size:13px;font-weight:700;color:#344054}
-nav a:hover,nav a.active{color:var(--blue)}
-.search{margin-left:auto;width:min(360px,30vw);height:42px;border:1px solid #dce4f0;border-radius:24px;display:flex;overflow:hidden;background:#fff;box-shadow:0 2px 8px #102a5008}
-.search input{width:100%;border:0;outline:0;padding:0 16px;font-size:13px}
-.search button{width:52px;border:0;background:var(--blue);color:#fff;font-size:20px;cursor:pointer}
-.tools{display:flex;align-items:center;gap:18px}
-.tool{position:relative;border:1px solid #dce5f2;border-radius:50%;width:39px;height:39px;display:grid;place-items:center;font-size:20px;background:#fff;cursor:pointer}
- .count{position:absolute;right:-4px;top:-5px;background:#f04452;color:white;border-radius:20px;min-width:17px;height:17px;font-size:10px;display:grid;place-items:center;padding:0 4px}
-.account-btn{border:1px solid #0866f5;background:#fff;color:#0866f5;border-radius:22px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
-.account-btn:hover{background:#f1f7ff}
-.auth-overlay{display:none;position:fixed;inset:0;background:#10182788;z-index:12;align-items:center;justify-content:center;padding:16px}
-.auth-box{width:min(420px,100%);background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 60px #0003}
-.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.auth-top h2{margin:0;font-size:22px}
-.auth-tabs{display:flex;gap:8px;margin:16px 0}
-.auth-tabs button{flex:1;border:1px solid #dce4f0;background:#f7faff;padding:10px;border-radius:9px;font-weight:800;color:#344054;cursor:pointer}
-.auth-tabs button.active{background:#0866f5;color:#fff;border-color:#0866f5}
-.auth-box label{display:block;font-size:12px;font-weight:800;margin:12px 0 5px}
-.auth-box input{width:100%;padding:12px;border:1px solid #dce4f0;border-radius:9px;font:14px Arial}
-.auth-submit{width:100%;margin-top:16px;border:0;border-radius:9px;background:#0866f5;color:#fff;padding:12px;font-weight:800;cursor:pointer}
-.auth-message{font-size:12px;line-height:1.5;color:#475467;margin-top:12px;min-height:18px}
-.auth-note{font-size:10px;color:#8792a2;line-height:1.5;margin-top:12px}
-main{max-width:1450px;margin:auto;padding:18px 3.2% 55px}
-.hero{min-height:292px;border-radius:18px;overflow:hidden;position:relative;display:flex;align-items:center;padding:35px 7%;background:linear-gradient(105deg,#f5f9ff 0%,#eaf4ff 47%,#c8e6ff 100%);border:1px solid #e2efff}
-.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:16%;top:-300px;background:#a8d9ff88}
-.hero:after{content:"";position:absolute;width:390px;height:390px;border-radius:50%;right:-110px;bottom:-260px;background:var(--blue)}
-.hero-copy{position:relative;z-index:1;max-width:470px}
-.eyebrow{display:inline-block;padding:7px 15px;border-radius:20px;background:var(--blue);color:white;font-size:13px;font-weight:800;margin-bottom:12px}
-.hero h1{font-size:clamp(34px,4vw,56px);line-height:.98;letter-spacing:-2px;margin:0 0 13px;color:#111827}
-.hero h1 span{display:block;color:var(--blue)}
-.hero p{font-size:16px;line-height:1.5;color:#344054;margin:0 0 19px;max-width:390px}
-.primary{display:inline-block;border:0;border-radius:25px;background:linear-gradient(90deg,var(--blue),#078ef8);color:#fff;padding:13px 24px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 7px 18px #0866f533}
-.hero-art{position:absolute;right:5%;bottom:0;width:52%;height:94%;display:flex;align-items:flex-end;justify-content:center;gap:12px;z-index:1}
-.hero-product{width:27%;height:75%;display:flex;align-items:center;justify-content:center;font-size:clamp(65px,9vw,120px);filter:drop-shadow(0 18px 12px #193b6333)}
-.hero-product:nth-child(2){height:88%;font-size:clamp(70px,10vw,135px)}
-.hero-product:nth-child(3){height:70%}
-.sale{position:absolute;z-index:2;right:3%;top:12%;background:var(--blue);color:#fff;width:92px;height:92px;border-radius:50%;display:grid;place-content:center;text-align:center;font-weight:800;box-shadow:0 8px 20px #0866f544}
-.sale b{font-size:25px}
-.hero-dots{position:absolute;bottom:14px;left:50%;display:flex;gap:7px;z-index:2}
-.hero-dots i{width:9px;height:9px;border-radius:50%;background:#aab6c8}.hero-dots i:first-child{width:23px;border-radius:9px;background:var(--blue)}
-.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 2px 24px}
-.benefit{border:1px solid var(--line);border-radius:13px;padding:13px 16px;display:flex;align-items:center;gap:13px;background:#fff;box-shadow:0 3px 12px #102a5006}
-.benefit .ico{font-size:29px;color:var(--blue);width:40px;text-align:center}
-.benefit b{display:block;font-size:14px;margin-bottom:4px}.benefit small{font-size:11px;color:var(--muted)}
-.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 3px 13px}
-.section-head h2{font-size:22px;letter-spacing:-.5px;margin:0}
-.view{font-size:13px;font-weight:800;color:var(--blue)}
-.categories{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px;margin:0 0 27px}
-.category{text-align:center;cursor:pointer;font-size:12px;font-weight:700;color:#344054}
-.category .circle{width:78px;height:78px;margin:0 auto 8px;border-radius:50%;background:linear-gradient(145deg,#f8fbff,#eaf3ff);border:1px solid #d7e8ff;display:grid;place-items:center;font-size:39px;transition:.2s}
-.category:hover .circle{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 8px 18px #0866f51c}
-.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 3px 12px #102a5009;min-width:0;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 25px #102a5016}
-.visual{height:190px;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#f8fbff,#edf5ff)}
-.visual .emoji{font-size:104px;filter:drop-shadow(0 12px 8px #193b6325)}
-.tag{position:absolute;top:12px;left:12px;background:var(--blue);color:#fff;font-size:10px;font-weight:800;padding:6px 10px;border-radius:18px}
-.heart{position:absolute;right:12px;top:9px;border:0;background:#ffffffdd;color:#64748b;font-size:23px;cursor:pointer}
-.details{padding:12px 13px 14px}
-.name-row{display:flex;align-items:center;justify-content:space-between;gap:5px}
-.name{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rating{font-size:11px;color:#f4a900;white-space:nowrap}
-.desc{font-size:11px;line-height:1.45;color:#7b8494;margin:7px 0 10px;height:31px;overflow:hidden}
-.buy-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:5px}
-.price{font-size:17px;color:var(--blue);font-weight:900}
-.old{font-size:10px;color:#98a2b3;text-decoration:line-through;margin-left:5px}
-.stock{font-size:10px;color:#087443;background:#dcfce9;padding:5px 8px;border-radius:15px;white-space:nowrap}
-.add{width:100%;border:0;border-radius:9px;background:linear-gradient(90deg,var(--blue),#078ef8);color:white;padding:11px 6px;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 5px 12px #0866f526}
-.add:hover{filter:brightness(.94)}
-#about{text-align:center;color:#7b8494;font-size:12px;margin-top:35px;padding:24px;border-top:1px solid var(--line)}
-footer{text-align:center;padding:20px;color:#8792a2;font-size:11px;border-top:1px solid var(--line);background:#fbfcff}
-.overlay{display:none;position:fixed;inset:0;background:#10182777;z-index:8;justify-content:flex-end}
-.panel{background:white;width:min(410px,100%);height:100%;padding:22px;overflow:auto;box-shadow:-12px 0 35px #0002}
-.panelhead{display:flex;justify-content:space-between;align-items:center}
-.panelhead h2{font-size:22px}
-.close{border:0;background:#eef3fa;border-radius:50%;font-size:20px;width:34px;height:34px;cursor:pointer}
-.cartitem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:12px}
-.cartitem button{border:1px solid #dce4f0;background:white;border-radius:5px;padding:3px 8px;cursor:pointer}
-.total{font-weight:900;display:flex;justify-content:space-between;margin:20px 0;font-size:16px}
-.panel input,.panel textarea{width:100%;padding:11px;margin:6px 0 13px;border:1px solid #dce4f0;border-radius:8px;font:13px Arial}
-.panel label{font-size:12px;font-weight:800}
-.panel .add{margin-top:10px}
-@media(max-width:1050px){header{gap:17px;padding:0 3%}nav{gap:14px}.categories{grid-template-columns:repeat(5,1fr);row-gap:18px}.hero-art{right:2%;width:50%}.benefits{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){.topbar{padding:0 4%;font-size:10px}.topbar span:nth-child(2){display:none}header{height:auto;min-height:65px;padding:12px 4%;gap:10px;flex-wrap:wrap}.logo{font-size:23px}nav{order:4;width:100%;overflow:auto;gap:20px;padding:5px 0}nav a{font-size:12px}.search{width:auto;flex:1;height:37px}.tools{gap:7px}.tool{width:34px;height:34px;font-size:17px}main{padding:14px 4% 40px}.hero{min-height:350px;padding:25px 7%;align-items:flex-start}.hero-copy{max-width:100%}.hero h1{font-size:37px}.hero p{font-size:13px;max-width:260px}.hero-art{width:100%;height:46%;right:0;bottom:0;justify-content:flex-end;padding-right:8%}.hero-product{font-size:66px}.hero-product:nth-child(2){font-size:78px}.hero-product:nth-child(3){font-size:62px}.sale{width:68px;height:68px;right:5%;top:48%}.sale b{font-size:19px}.hero-dots{left:48%;bottom:10px}.benefits{gap:9px;margin:13px 0 20px}.benefit{padding:10px;gap:7px}.benefit .ico{font-size:23px;width:28px}.benefit b{font-size:11px}.benefit small{font-size:9px}.section-head h2{font-size:19px}.categories{grid-template-columns:repeat(5,1fr);gap:14px 6px}.category .circle{width:58px;height:58px;font-size:29px}.category{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.visual{height:145px}.visual .emoji{font-size:78px}.details{padding:9px}.name{font-size:12px}.desc{font-size:10px;height:29px}.price{font-size:14px}.old{font-size:9px}.stock{font-size:9px;padding:4px 6px}.add{font-size:11px;padding:10px 4px}}
-@media(max-width:390px){.hero h1{font-size:32px}.hero{min-height:335px}.hero-product{font-size:55px}.hero-product:nth-child(2){font-size:66px}.hero-product:nth-child(3){font-size:52px}.benefit small{font-size:8px}.visual{height:125px}.visual .emoji{font-size:68px}.details{padding:8px}.name{font-size:11px}}
+:root{--ink:#151515;--muted:#707070;--line:#e9e5df;--cream:#f7f4ef;--sand:#e9dfd2;--gold:#c99b55;--green:#16845b;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:Inter,Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+.topbar{min-height:34px;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#f8f7f5;border-bottom:1px solid var(--line);font-size:11px;color:#444}
+header{height:76px;padding:0 5%;display:flex;align-items:center;gap:30px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.logo{font-size:27px;font-weight:850;letter-spacing:-1.2px;white-space:nowrap}.logo-mark{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:8px;border-radius:11px;background:#171717;color:#fff;font-size:18px;vertical-align:-3px}.logo span:last-child{color:#b8894b}
+nav{display:flex;gap:24px;white-space:nowrap}nav a{font-size:13px;font-weight:700;color:#444}nav a:hover,nav a.active{color:#a7773e}
+.search{margin-left:auto;width:min(330px,28vw);height:41px;border:1px solid #e5e1db;border-radius:24px;display:flex;overflow:hidden;background:#fff}.search input{width:100%;border:0;outline:0;padding:0 16px;font-size:12px}.search button{width:48px;border:0;background:#f1eee9;color:#222;font-size:18px}
+.tools{display:flex;align-items:center;gap:10px}.tool{position:relative;border:1px solid #e5e1db;border-radius:50%;width:38px;height:38px;display:grid;place-items:center;font-size:19px;background:#fff}.count{position:absolute;right:-5px;top:-5px;background:#b33b2e;color:#fff;border-radius:20px;min-width:17px;height:17px;font-size:10px;display:grid;place-items:center;padding:0 4px}
+.account-btn{border:1px solid #1b1b1b;background:#fff;color:#171717;border-radius:22px;padding:10px 14px;font-size:12px;font-weight:800;white-space:nowrap}.account-btn:hover{background:#171717;color:#fff}
+main{max-width:1500px;margin:auto;padding:18px 4% 48px}
+.hero{min-height:330px;border-radius:18px;overflow:hidden;position:relative;display:flex;align-items:center;padding:40px 6%;background:linear-gradient(90deg,#f5f1eb 0%,#f5f1eb 39%,#e8ded1 100%);border:1px solid #eee7dd}
+.hero:after{content:"";position:absolute;right:-80px;bottom:-210px;width:500px;height:500px;border-radius:50%;background:#d7c5af88}
+.hero-copy{position:relative;z-index:2;max-width:480px}.eyebrow{display:inline-block;padding:7px 14px;border-radius:20px;background:#e9c17d;color:#171717;font-size:12px;font-weight:800;margin-bottom:13px}
+.hero h1{font-size:clamp(38px,4.2vw,60px);line-height:.98;letter-spacing:-2.4px;margin:0 0 14px}.hero p{font-size:15px;line-height:1.55;color:#4c4a47;margin:0 0 20px;max-width:380px}
+.primary{display:inline-block;border:0;border-radius:25px;background:#171717;color:#fff;padding:13px 25px;font-size:13px;font-weight:800;box-shadow:0 6px 16px #0002}.primary:hover{background:#9c713e}
+.hero-photo{position:absolute;right:2%;bottom:0;width:58%;height:100%;object-fit:cover;object-position:center 56%;mix-blend-mode:multiply;z-index:1;mask-image:linear-gradient(90deg,transparent 0%,#000 23%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 23%)}
+.sale{position:absolute;z-index:3;right:3%;top:10%;background:#171717;color:#fff;width:88px;height:88px;border-radius:50%;display:grid;place-content:center;text-align:center;font-weight:800;font-size:11px}.sale b{font-size:24px}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0 25px}.benefit{border:1px solid var(--line);border-radius:13px;padding:14px 16px;display:flex;align-items:center;gap:13px;background:#fff}.benefit .ico{font-size:25px;width:35px;text-align:center}.benefit b{display:block;font-size:13px;margin-bottom:4px}.benefit small{font-size:11px;color:var(--muted)}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:24px 2px 14px}.section-head h2{font-size:22px;letter-spacing:-.5px;margin:0}.view{font-size:12px;font-weight:800;color:#8c6539}
+.categories{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:12px;margin-bottom:28px}.category{text-align:center;font-size:11px;font-weight:700;color:#333}.category .circle{width:82px;height:82px;margin:0 auto 8px;border-radius:50%;background:#f4f1ec;border:1px solid #e9e2d8;display:grid;place-items:center;overflow:hidden;transition:.2s}.category img{width:100%;height:100%;object-fit:cover}.category:hover .circle{transform:translateY(-4px);box-shadow:0 8px 18px #00000012}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 3px 12px #00000008;min-width:0;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 12px 25px #00000013}
+.visual{height:205px;position:relative;display:grid;place-items:center;overflow:hidden;background:#f5f3f0}.visual img{width:100%;height:100%;object-fit:cover;transition:transform .35s}.card:hover .visual img{transform:scale(1.045)}
+.tag{position:absolute;top:12px;left:12px;background:#171717;color:#fff;font-size:10px;font-weight:800;padding:6px 10px;border-radius:18px}.tag.gold{background:#d99b32;color:#171717}.tag.red{background:#b94b36}
+.heart{position:absolute;right:12px;top:10px;border:0;background:#ffffffed;color:#222;font-size:22px;width:34px;height:34px;border-radius:50%}
+.details{padding:12px 13px 14px}.name-row{display:flex;align-items:center;justify-content:space-between;gap:5px}.name{font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rating{font-size:11px;color:#d69a2d;white-space:nowrap}.desc{font-size:11px;line-height:1.45;color:#777;margin:7px 0 10px;height:30px;overflow:hidden}
+.buy-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:5px}.price{font-size:16px;color:#171717;font-weight:900}.old{font-size:10px;color:#999;text-decoration:line-through;margin-left:5px}.stock{font-size:10px;color:#087443;background:#e4f4e9;padding:5px 8px;border-radius:15px;white-space:nowrap}.add{width:100%;border:0;border-radius:8px;background:#171717;color:#fff;padding:11px 6px;font-size:11px;font-weight:800}.add:hover{background:#9c713e}
+#about{text-align:center;color:#777;font-size:12px;margin-top:35px;padding:24px;border-top:1px solid var(--line)}footer{text-align:center;padding:20px;color:#777;font-size:11px;border-top:1px solid var(--line);background:#faf9f7}
+.overlay{display:none;position:fixed;inset:0;background:#17171788;z-index:8;justify-content:flex-end}.panel{background:#fff;width:min(410px,100%);height:100%;padding:22px;overflow:auto;box-shadow:-12px 0 35px #0002}.panelhead{display:flex;justify-content:space-between;align-items:center}.panelhead h2{font-size:22px}.close{border:0;background:#f0ede8;border-radius:50%;font-size:20px;width:34px;height:34px}.cartitem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:12px}.cartitem button{border:1px solid #ddd;background:white;border-radius:5px;padding:3px 8px}.total{font-weight:900;display:flex;justify-content:space-between;margin:20px 0;font-size:16px}.panel input,.panel textarea{width:100%;padding:11px;margin:6px 0 13px;border:1px solid #ddd;border-radius:8px;font:13px Arial}.panel label{font-size:12px;font-weight:800}.panel .add{margin-top:10px}
+.auth-overlay{display:none;position:fixed;inset:0;background:#17171788;z-index:12;align-items:center;justify-content:center;padding:16px}.auth-box{width:min(420px,100%);background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 60px #0003}.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.auth-top h2{margin:0;font-size:22px}.auth-tabs{display:flex;gap:8px;margin:16px 0}.auth-tabs button{flex:1;border:1px solid #e5e1db;background:#f7f5f1;padding:10px;border-radius:9px;font-weight:800;color:#333}.auth-tabs button.active{background:#171717;color:#fff;border-color:#171717}.auth-box label{display:block;font-size:12px;font-weight:800;margin:12px 0 5px}.auth-box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;font:14px Arial}.auth-submit{width:100%;margin-top:16px;border:0;border-radius:9px;background:#171717;color:#fff;padding:12px;font-weight:800}.auth-submit:disabled{opacity:.6}.auth-message{font-size:12px;line-height:1.5;color:#475467;margin-top:12px;min-height:18px}.auth-note{font-size:10px;color:#8792a2;line-height:1.5;margin-top:12px}.forgot{display:block;text-align:right;margin-top:9px;font-size:11px;color:#8c6539;font-weight:700;background:none;border:0;padding:0}
+@media(max-width:1100px){header{gap:16px}nav{gap:14px}.categories{grid-template-columns:repeat(5,1fr)}.hero-photo{width:56%}.benefits{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.topbar{padding:8px 4%;font-size:10px}.topbar span:nth-child(2){display:none}header{height:auto;min-height:65px;padding:12px 4%;gap:10px;flex-wrap:wrap}.logo{font-size:23px}nav{order:4;width:100%;overflow:auto;gap:20px;padding:5px 0}nav a{font-size:12px}.search{width:auto;flex:1;height:37px}.tools{gap:6px}.tool{width:34px;height:34px;font-size:16px}.account-btn{font-size:10px;padding:9px 10px}main{padding:14px 4% 40px}.hero{min-height:390px;padding:25px 7%;align-items:flex-start}.hero-copy{max-width:100%}.hero h1{font-size:37px}.hero p{font-size:13px;max-width:260px}.hero-photo{width:100%;height:52%;right:0;object-position:center 58%;mask-image:linear-gradient(180deg,transparent 0%,#000 25%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 25%)}.sale{width:66px;height:66px;right:5%;top:49%;font-size:9px}.sale b{font-size:18px}.benefits{gap:9px;margin:13px 0 20px}.benefit{padding:10px;gap:7px}.benefit .ico{font-size:21px;width:27px}.benefit b{font-size:11px}.benefit small{font-size:9px}.section-head h2{font-size:19px}.categories{grid-template-columns:repeat(5,1fr);gap:14px 6px}.category .circle{width:59px;height:59px}.category{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.visual{height:150px}.details{padding:9px}.name{font-size:12px}.desc{font-size:10px;height:29px}.price{font-size:14px}.old{font-size:9px}.stock{font-size:9px;padding:4px 6px}.add{font-size:10px;padding:10px 4px}}
+@media(max-width:390px){.hero h1{font-size:32px}.hero{min-height:365px}.benefit small{font-size:8px}.visual{height:128px}.details{padding:8px}.name{font-size:11px}}
 </style>
 </head>
 <body>
-<div class="topbar"><span>🚚 &nbsp;Free Delivery on Orders Above Rs. 2000</span><span><strong>✓</strong> &nbsp;Secure &amp; Easy Shopping</span><span>About &nbsp; | &nbsp; Help &nbsp; | &nbsp; Contact</span></div>
+<div class="topbar"><span>🚚 &nbsp;Free Delivery on Orders Above Rs. 2000</span><span>✓ &nbsp;Secure &amp; Easy Shopping</span><span>About &nbsp; | &nbsp; Help &nbsp; | &nbsp; Contact</span></div>
 <header>
- <a class="logo" href="#"><span class="logo-mark">✓</span>Shop<span>Nova</span></a>
+ <a class="logo" href="#"><span class="logo-mark">S</span>Shop<span>Nova</span></a>
  <nav><a class="active" href="#">Home</a><a href="#products">Shop</a><a href="#products">New Arrivals</a><a href="#products">Deals</a><a href="#about">About</a></nav>
  <div class="search"><input id="search" placeholder="Search for products..." aria-label="Search products"><button onclick="render()" aria-label="Search">⌕</button></div>
  <div class="tools"><button class="account-btn" id="accountBtn" onclick="openAuth()">Login / Sign Up</button><button class="tool" title="Wishlist" aria-label="Wishlist" onclick="showWishlist()">♡</button><button class="tool" title="Cart" aria-label="Cart" onclick="openCart()">🛒<span class="count" id="count">0</span></button></div>
 </header>
 <main>
  <section class="hero">
-  <div class="hero-copy"><span class="eyebrow">Welcome to ShopNova</span><h1>Smart Shopping <span>Better Living</span></h1><p>Discover everyday essentials, fresh finds and great deals — all in one place.</p><a class="primary" href="#products">Shop Now &nbsp; →</a></div>
-  <div class="hero-art" aria-hidden="true"><div class="hero-product">🎧</div><div class="hero-product">⌚</div><div class="hero-product">🎒</div><div class="hero-product">👟</div></div>
-  <div class="sale">UP TO <b>50%</b> OFF</div><div class="hero-dots"><i></i><i></i><i></i></div>
+  <div class="hero-copy"><span class="eyebrow">Welcome to ShopNova</span><h1>Smart Shopping<br>Better Living</h1><p>Discover everyday essentials, fresh finds and great deals — all in one place.</p><a class="primary" href="#products">Shop Now &nbsp; →</a></div>
+  <img class="hero-photo" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1400&q=85" alt="Premium everyday backpack and accessories">
+  <div class="sale">UP TO <b>50%</b> OFF</div>
  </section>
  <section class="benefits">
   <div class="benefit"><span class="ico">🚚</span><div><b>Free Delivery</b><small>On orders above Rs. 2000</small></div></div>
-  <div class="benefit"><span class="ico">🛡️</span><div><b>Secure Payments</b><small>Your data is safe with us</small></div></div>
-  <div class="benefit"><span class="ico">🎧</span><div><b>24/7 Support</b><small>We are here to help</small></div></div>
-  <div class="benefit"><span class="ico">📦</span><div><b>Easy Returns</b><small>Hassle-free returns</small></div></div>
+  <div class="benefit"><span class="ico">♢</span><div><b>Secure Payments</b><small>Your data is safe with us</small></div></div>
+  <div class="benefit"><span class="ico">☏</span><div><b>24/7 Support</b><small>We are here to help</small></div></div>
+  <div class="benefit"><span class="ico">▣</span><div><b>Easy Returns</b><small>Hassle-free returns</small></div></div>
  </section>
  <div class="section-head"><h2>Shop by Category</h2><a class="view" href="#products">View All →</a></div>
  <section class="categories">
-  <a class="category" href="#products"><div class="circle">💻</div>Electronics</a>
-  <a class="category" href="#products"><div class="circle">👕</div>Fashion</a>
-  <a class="category" href="#products"><div class="circle">📱</div>Mobiles</a>
-  <a class="category" href="#products"><div class="circle">🛋️</div>Home &amp; Living</a>
-  <a class="category" href="#products"><div class="circle">🧴</div>Beauty &amp; Care</a>
-  <a class="category" href="#products"><div class="circle">⚽</div>Sports</a>
-  <a class="category" href="#products"><div class="circle">🧸</div>Toys &amp; Games</a>
-  <a class="category" href="#products"><div class="circle">🍲</div>Kitchen</a>
-  <a class="category" href="#products"><div class="circle">👜</div>Bags</a>
-  <a class="category" href="#products"><div class="circle">🎁</div>Gifts</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80" alt=""></div>Electronics</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=300&q=80" alt=""></div>Fashion</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300&q=80" alt=""></div>Mobiles</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=300&q=80" alt=""></div>Home &amp; Living</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=300&q=80" alt=""></div>Beauty &amp; Care</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=300&q=80" alt=""></div>Sports</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=300&q=80" alt=""></div>Toys &amp; Games</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=300&q=80" alt=""></div>Kitchen</a>
+  <a class="category" href="#products"><div class="circle"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300&q=80" alt=""></div>Bags</a>
  </section>
  <div class="section-head"><h2>Our Latest Products</h2><a class="view" href="#products">View All →</a></div>
  <section class="products" id="products"></section>
  <section id="about">ShopNova — Smart Shopping, Better Living. A simple, stylish place to discover your next favourite thing.</section>
 </main>
-<footer>© 2026 ShopNova. Demo store — product details and prices are sample content.</footer>
+<footer>© 2026 ShopNova. Product details and prices are sample content.</footer>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><div class="panel"><div class="panelhead"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart"></div><div class="total"><span>Total</span><span id="total">Rs. 0</span></div><h3>Cash on Delivery</h3><form onsubmit="checkout(event)"><label>Your name</label><input required placeholder="Full name"><label>Phone</label><input required type="tel" placeholder="03XXXXXXXXX"><label>Address</label><textarea required rows="3" placeholder="Delivery address"></textarea><button class="add">Place Demo Order</button><p style="font-size:10px;color:#8792a2">Demo only. This form does not send a real order or payment.</p></form></div></div>
-
 <div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuth()">
  <section class="auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="auth-top"><h2 id="authTitle">Your ShopNova Account</h2><button class="close" type="button" onclick="closeAuth()">×</button></div>
@@ -151,25 +85,23 @@ footer{text-align:center;padding:20px;color:#8792a2;font-size:11px;border-top:1p
   <form id="authForm">
    <label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com">
    <label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters">
+   <button class="forgot" type="button" onclick="resetPassword()">Forgot password?</button>
    <button class="auth-submit" id="authSubmit" type="submit">Login</button>
   </form>
   <p class="auth-message" id="authMessage" aria-live="polite"></p>
-  <p class="auth-note">Use your own email. Never share your password. New accounts may need email confirmation before login.</p>
+  <p class="auth-note">New accounts may need email confirmation before login. Use the same email address you registered with.</p>
  </section>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// Add your ShopNova Supabase Project URL and publishable (anon) key below.
-// Never put a service_role / secret key in website code.
 const SUPABASE_URL = "https://upzrrlwgyvqostwqvdqu.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_U058KZEpPdQvJ4-xC8d4wA_EMP1Hpzj";
+const SITE_URL = "https://snova-7ns.pages.dev/";
 let supabaseClient = null;
 let authMode = "login";
-
 function initSupabase(){
-  if(!window.supabase || SUPABASE_URL.includes("PASTE_") || SUPABASE_ANON_KEY.includes("PASTE_")) return false;
-  if(!supabaseClient) supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  if(!window.supabase) return false;
+  if(!supabaseClient) supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
   return true;
 }
 function openAuth(){document.getElementById("authOverlay").style.display="flex";document.getElementById("authMessage").textContent="";}
@@ -188,59 +120,66 @@ function updateAccountButton(user){
   else{btn.textContent="Login / Sign Up";btn.onclick=openAuth;btn.title="Customer account";}
 }
 async function signOutShopNova(){
-  if(!initSupabase()){alert("Supabase setup is not complete yet.");return;}
+  if(!initSupabase()){alert("Supabase is not available. Please refresh.");return;}
   const {error}=await supabaseClient.auth.signOut();
   if(error) alert(error.message); else updateAccountButton(null);
+}
+async function resetPassword(){
+  const email=document.getElementById("authEmail").value.trim();
+  const message=document.getElementById("authMessage");
+  if(!email){message.textContent="Enter your email address first, then choose Forgot password.";return;}
+  if(!initSupabase()){message.textContent="Supabase could not load. Refresh and try again.";return;}
+  const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:SITE_URL});
+  message.textContent=error?error.message:"Password reset link sent. Check your email inbox.";
 }
 document.getElementById("authForm").addEventListener("submit",async function(e){
   e.preventDefault();
   const message=document.getElementById("authMessage");
   const email=document.getElementById("authEmail").value.trim();
   const password=document.getElementById("authPassword").value;
-  if(!initSupabase()){message.textContent="Supabase setup is not complete. Add your Project URL and publishable/anon key in the code first.";return;}
+  if(!initSupabase()){message.textContent="Supabase could not load. Refresh the page and try again.";return;}
   const submit=document.getElementById("authSubmit");submit.disabled=true;submit.textContent="Please wait...";message.textContent="";
   try{
     if(authMode==="signup"){
-      const {data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo: "https://snova-7ns.pages.dev/"}});
+      const {data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:SITE_URL}});
       if(error) throw error;
-      if(data.session){message.textContent="Account created and you are signed in.";updateAccountButton(data.user);}
-      else{message.textContent="Account created. Check your email for the confirmation link, then log in." ;}
+      message.textContent=data.session?"Account created and signed in.":"Account created. Check your email for the confirmation link, then return here and log in.";
+      if(data.session) updateAccountButton(data.user);
     }else{
       const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
       if(error) throw error;
-      message.textContent="Login successful. Welcome to ShopNova!";updateAccountButton(data.user);
+      updateAccountButton(data.user);
+      message.textContent="Login successful. Welcome to ShopNova!";
       setTimeout(closeAuth,900);
     }
   }catch(err){message.textContent=err.message||"Something went wrong. Please try again.";}
   finally{submit.disabled=false;submit.textContent=authMode==="login"?"Login":"Create account";}
 });
-
 const products=[
-{id:1,name:'Wireless Earbuds',desc:'Clear sound for music, calls and everyday use.',price:2999,old:4999,emoji:'🎧',tag:'Best Seller'},
-{id:2,name:'Smart Watch',desc:'A modern everyday watch with useful features.',price:3499,old:5499,emoji:'⌚',tag:'New Arrival'},
-{id:3,name:'Travel Backpack',desc:'A practical backpack for school, work and travel.',price:1899,old:3499,emoji:'🎒',tag:'Popular'},
-{id:4,name:'Running Shoes',desc:'Comfortable sporty shoes for everyday movement.',price:3299,old:4299,emoji:'👟',tag:'Hot Deal'},
-{id:5,name:'Classic Sunglasses',desc:'Simple everyday style with a timeless frame.',price:1499,old:1999,emoji:'🕶️',tag:'Trending'},
-{id:6,name:'Bluetooth Speaker',desc:'Compact speaker for your favourite playlists.',price:2799,old:3499,emoji:'🔊',tag:'New Arrival'},
-{id:7,name:'Everyday Sneakers',desc:'Versatile casual sneakers for daily outfits.',price:2999,old:3999,emoji:'👟',tag:'Popular'},
-{id:8,name:'Gift Set',desc:'A thoughtful gift for someone special.',price:1999,old:2599,emoji:'🎁',tag:'Gift Pick'}
+{id:1,name:"Wireless Earbuds",desc:"Clear sound for music, calls and everyday use.",price:2999,old:4999,image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85",tag:"Best Seller",tone:"gold"},
+{id:2,name:"Smart Watch",desc:"A modern everyday watch with useful features.",price:3499,old:5499,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",tag:"New Arrival"},
+{id:3,name:"Travel Backpack",desc:"A practical backpack for school, work and travel.",price:1899,old:3499,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85",tag:"Popular"},
+{id:4,name:"Running Shoes",desc:"Comfortable sporty shoes for everyday movement.",price:3299,old:4299,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",tag:"Hot Deal",tone:"red"},
+{id:5,name:"Classic Sunglasses",desc:"Simple everyday style with a timeless frame.",price:1499,old:1999,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=85",tag:"Trending"},
+{id:6,name:"Bluetooth Speaker",desc:"Compact speaker for your favourite playlists.",price:2799,old:3499,image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85",tag:"New Arrival"},
+{id:7,name:"Everyday Sneakers",desc:"Versatile casual sneakers for daily outfits.",price:2999,old:3999,image:"https://images.unsplash.com/photo-149-5555961986-6d4c1ecb7be3?auto=format&fit=crop&w=700&q=85",tag:"Popular"},
+{id:8,name:"Gift Set",desc:"A thoughtful gift for someone special.",price:1999,old:2599,image:"https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85",tag:"Gift Pick"}
 ];
-let cart={};let wishlist=new Set();
-const money=n=>'Rs. '+n.toLocaleString('en-PK');
-function render(){let q=document.getElementById('search').value.toLowerCase();document.getElementById('products').innerHTML=products.filter(p=>(p.name+' '+p.desc).toLowerCase().includes(q)).map(p=>`<article class="card"><div class="visual"><span class="tag">${p.tag}</span><button class="heart" aria-label="Add ${p.name} to wishlist" onclick="toggleWish(${p.id},this)">${wishlist.has(p.id)?'♥':'♡'}</button><span class="emoji">${p.emoji}</span></div><div class="details"><div class="name-row"><span class="name">${p.name}</span><span class="rating">★ 4.8</span></div><p class="desc">${p.desc}</p><div class="buy-row"><span><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></span><span class="stock">In Stock</span></div><button class="add" onclick="add(${p.id})">🛒 &nbsp; Add to Cart</button></div></article>`).join('')||'<p>No matching products.</p>'}
-function toggleWish(id,el){if(wishlist.has(id)){wishlist.delete(id);el.textContent='♡'}else{wishlist.add(id);el.textContent='♥'}}
-function showWishlist(){alert(wishlist.size?'Wishlist: '+products.filter(p=>wishlist.has(p.id)).map(p=>p.name).join(', '):'Your wishlist is empty. Tap a heart on a product to save it.')}
+let cart={};let wishlist=new Set();const money=n=>"Rs. "+n.toLocaleString("en-PK");
+function render(){const q=document.getElementById("search").value.toLowerCase();document.getElementById("products").innerHTML=products.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(q)).map(p=>`<article class="card"><div class="visual"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag ${p.tone||""}">${p.tag}</span><button class="heart" aria-label="Add ${p.name} to wishlist" onclick="toggleWish(${p.id},this)">${wishlist.has(p.id)?"♥":"♡"}</button></div><div class="details"><div class="name-row"><span class="name">${p.name}</span><span class="rating">★ 4.8</span></div><p class="desc">${p.desc}</p><div class="buy-row"><span><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></span><span class="stock">In Stock</span></div><button class="add" onclick="add(${p.id})">Add to Cart &nbsp; +</button></div></article>`).join("")||"<p>No matching products.</p>";}
+function toggleWish(id,el){if(wishlist.has(id)){wishlist.delete(id);el.textContent="♡"}else{wishlist.add(id);el.textContent="♥"}}
+function showWishlist(){alert(wishlist.size?"Wishlist: "+products.filter(p=>wishlist.has(p.id)).map(p=>p.name).join(", "):"Your wishlist is empty. Tap a heart on a product to save it.")}
 function add(id){cart[id]=(cart[id]||0)+1;update();openCart()}
-function update(){let n=Object.values(cart).reduce((a,b)=>a+b,0);document.getElementById('count').textContent=n;document.getElementById('cart').innerHTML=n?Object.entries(cart).map(([id,q])=>{let p=products.find(x=>x.id==id);return `<div class="cartitem"><span>${p.emoji} ${p.name} × ${q}</span><span>${money(p.price*q)} <button onclick="change(${id},-1)">−</button> <button onclick="change(${id},1)">+</button></span></div>`}).join(''):'<p style="color:#8792a2">Your cart is empty.</p>';document.getElementById('total').textContent=money(Object.entries(cart).reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0))}
+function update(){const n=Object.values(cart).reduce((a,b)=>a+b,0);document.getElementById("count").textContent=n;document.getElementById("cart").innerHTML=n?Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id==id);return `<div class="cartitem"><span>${p.name} × ${q}</span><span>${money(p.price*q)} <button onclick="change(${id},-1)">−</button> <button onclick="change(${id},1)">+</button></span></div>`}).join(""):'<p style="color:#8792a2">Your cart is empty.</p>';document.getElementById("total").textContent=money(Object.entries(cart).reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0))}
 function change(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];update()}
-function openCart(){document.getElementById('overlay').style.display='flex'}function closeCart(){document.getElementById('overlay').style.display='none'}
-function checkout(e){e.preventDefault();alert('Demo checkout only. No real order has been sent.');cart={};update();closeCart();e.target.reset()}
-document.getElementById('search').addEventListener('input',render);render();update();
+function openCart(){document.getElementById("overlay").style.display="flex"}function closeCart(){document.getElementById("overlay").style.display="none"}
+function checkout(e){e.preventDefault();alert("Demo checkout only. No real order has been sent.");cart={};update();closeCart();e.target.reset()}
+document.getElementById("search").addEventListener("input",render);render();update();
 (async function restoreAuthSession(){
-  if(!initSupabase()) return;
-  const {data:{session}}=await supabaseClient.auth.getSession();
-  updateAccountButton(session?.user||null);
-  supabaseClient.auth.onAuthStateChange((_event,session)=>updateAccountButton(session?.user||null));
+ if(!initSupabase())return;
+ const {data:{session}}=await supabaseClient.auth.getSession();
+ updateAccountButton(session?.user||null);
+ supabaseClient.auth.onAuthStateChange((_event,session)=>updateAccountButton(session?.user||null));
 })();
 </script>
 </body>
