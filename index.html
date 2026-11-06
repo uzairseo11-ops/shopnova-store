@@ -27,7 +27,7 @@ main{max-width:1500px;margin:auto;padding:18px 4% 48px}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin:24px 2px 14px}.section-head h2{font-size:22px;letter-spacing:-.5px;margin:0}.view{font-size:12px;font-weight:800;color:#8c6539}
 .categories{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:12px;margin-bottom:28px}.category{text-align:center;font-size:11px;font-weight:700;color:#333}.category .circle{width:82px;height:82px;margin:0 auto 8px;border-radius:50%;background:#f4f1ec;border:1px solid #e9e2d8;display:grid;place-items:center;overflow:hidden;transition:.2s}.category img{width:100%;height:100%;object-fit:cover}.category:hover .circle{transform:translateY(-4px);box-shadow:0 8px 18px #00000012}
 .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 3px 12px #00000008;min-width:0;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 12px 25px #00000013}
-.visual{height:205px;position:relative;display:grid;place-items:center;overflow:hidden;background:#f5f3f0}.visual img{width:100%;height:100%;object-fit:cover;transition:transform .35s}.card:hover .visual img{transform:scale(1.045)}
+.visual{height:205px;position:relative;display:grid;place-items:center;overflow:hidden;background:#fff}.visual img{width:100%;height:100%;object-fit:contain;transition:transform .35s}.card:hover .visual img{transform:scale(1.045)}
 .tag{position:absolute;top:12px;left:12px;background:#171717;color:#fff;font-size:10px;font-weight:800;padding:6px 10px;border-radius:18px}.tag.gold{background:#d99b32;color:#171717}.tag.red{background:#b94b36}
 .heart{position:absolute;right:12px;top:10px;border:0;background:#ffffffed;color:#222;font-size:22px;width:34px;height:34px;border-radius:50%}
 .details{padding:12px 13px 14px}.name-row{display:flex;align-items:center;justify-content:space-between;gap:5px}.name{font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rating{font-size:11px;color:#d69a2d;white-space:nowrap}.desc{font-size:11px;line-height:1.45;color:#777;margin:7px 0 10px;height:30px;overflow:hidden}
@@ -178,19 +178,21 @@ document.getElementById("authForm").addEventListener("submit",async function(e){
 const products=[
 {
 id:1,
-name:"Wireless Bluetooth Earbuds",
-desc:"Wireless earbuds for music and everyday calls.",
+name:"Buds Pro 5 Wireless Earbuds",
+desc:"Bluetooth 5.3 TWS earbuds with ANC, deep bass and LED charging case.",
 price:1199,
-image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85",
+old:5000,
+image:"https://img.drz.lazcdn.com/g/kf/S577893eb3deb4bb3823233d38056a2544.png_720x720q80.png_.webp",
 tag:"Best Seller",
 darazUrl:"https://www.daraz.pk/products/5-tws-5-anc-enc-hi-fi-hd-hd-c-led-30h-i1980489859-s14069494240.html"
 },
 {
 id:2,
-name:"Smart Watch",
-desc:"A modern smartwatch for everyday use.",
+name:"Watch 9 Max Smart Watch",
+desc:"Bluetooth calling, full touch display and fitness tracking.",
 price:1968,
-image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",
+old:3200,
+image:"https://img.drz.lazcdn.com/static/pk/p/de289b95b60e655b00266b26b785d690.png_720x720q80.png",
 tag:"Popular",
 darazUrl:"https://www.daraz.pk/products/9-i1974034001-s14063902494.html"
 },
@@ -205,25 +207,25 @@ darazUrl:"https://www.daraz.pk/products/usb-rechargeable-juicer-blender-6-blades
 },
 {
 id:4,
-name:"Rechargeable LED Lamp",
-desc:"A useful rechargeable lamp for your home.",
+name:"USB Rechargeable LED Desk Lamp",
+desc:"Eye-caring desk lamp with 360° flexible arm and 3 light modes.",
 price:699,
-image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=85",
+image:"https://img.drz.lazcdn.com/g/kf/S9f3cc4499ba64b9d9a8430a3bbf2e0015.jpg_720x720q80.jpg",
 tag:"Hot Deal",
 darazUrl:"https://www.daraz.pk/products/360-3-i943944043-s4008717800.html"
 },
 {
 id:5,
-name:"Mobile Phone Holder",
-desc:"A convenient phone holder for everyday use.",
+name:"Mobile Phone Desk Stand",
+desc:"Adjustable retractable phone stand with non-slip base.",
 price:499,
-image:"https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=85",
+image:"https://img.drz.lazcdn.com/static/pk/p/a19764c7c73fd002cb78dc4b21e99206.jpg_720x720q80.jpg",
 tag:"New Arrival",
 darazUrl:"https://www.daraz.pk/products/-i1974070525-s14063990287.html"
 }
 ];
 let cart={};let wishlist=new Set();const money=n=>"Rs. "+n.toLocaleString("en-PK");
-function render(){const q=document.getElementById("search").value.toLowerCase();document.getElementById("products").innerHTML=products.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(q)).map(p=>`<article class="card"><div class="visual"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag ${p.tone||""}">${p.tag}</span><button class="heart" aria-label="Add ${p.name} to wishlist" onclick="toggleWish(${p.id},this)">${wishlist.has(p.id)?"♥":"♡"}</button></div><div class="details"><div class="name-row"><span class="name">${p.name}</span><span class="rating">★ 4.8</span></div><p class="desc">${p.desc}</p><div class="buy-row"><span><span class="price">${money(p.price)}</span>${p.old?`<span class="old">${money(p.old)}</span>`:""}</span><span class="stock">On Daraz</span></div><a class="add buy-daraz" href="${p.darazUrl}" target="_blank" rel="noopener noreferrer sponsored">Buy on Daraz &nbsp; →</a></div></article>`).join("")||"<p>No matching products.</p>";}
+function render(){const q=document.getElementById("search").value.toLowerCase();document.getElementById("products").innerHTML=products.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(q)).map(p=>`<article class="card"><div class="visual"><img src="${p.image}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer"><span class="tag ${p.tone||""}">${p.tag}</span><button class="heart" aria-label="Add ${p.name} to wishlist" onclick="toggleWish(${p.id},this)">${wishlist.has(p.id)?"♥":"♡"}</button></div><div class="details"><div class="name-row"><span class="name">${p.name}</span><span class="rating">★ 4.8</span></div><p class="desc">${p.desc}</p><div class="buy-row"><span><span class="price">${money(p.price)}</span>${p.old?`<span class="old">${money(p.old)}</span>`:""}</span><span class="stock">On Daraz</span></div><a class="add buy-daraz" href="${p.darazUrl}" target="_blank" rel="noopener noreferrer sponsored">Buy on Daraz &nbsp; →</a></div></article>`).join("")||"<p>No matching products.</p>";}
 function toggleWish(id,el){if(wishlist.has(id)){wishlist.delete(id);el.textContent="♡"}else{wishlist.add(id);el.textContent="♥"}}
 function showWishlist(){alert(wishlist.size?"Wishlist: "+products.filter(p=>wishlist.has(p.id)).map(p=>p.name).join(", "):"Your wishlist is empty. Tap a heart on a product to save it.")}
 function add(id){cart[id]=(cart[id]||0)+1;update();openCart()}
