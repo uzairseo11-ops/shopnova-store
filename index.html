@@ -39,7 +39,11 @@ main{max-width:1500px;margin:auto;padding:26px 4% 56px}
 .buy-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:6px}.price{font-size:18px;color:var(--ink);font-weight:600}.old{font-size:12px;color:#7c756a;text-decoration:line-through;margin-left:7px}.stock{font-size:11px;color:var(--gold2);border:1px solid #c8a15a55;padding:4px 9px;border-radius:2px;white-space:nowrap}
 .add{width:100%;border:1px solid var(--gold);border-radius:3px;background:var(--gold);color:#121110;padding:12px 6px;font-size:12px;font-weight:600;letter-spacing:.5px;transition:background .2s,color .2s}.add:hover{background:transparent;color:var(--gold2)}
 a.add{display:block;text-align:center}.buy-daraz{background:transparent;color:var(--gold2)}.buy-daraz:hover{background:var(--gold);color:#121110}
-#about{text-align:center;color:var(--muted);font-size:14px;margin-top:44px;padding:30px;border-top:1px solid var(--line);font-family:"Cormorant Garamond",serif;font-size:20px}footer{text-align:center;padding:22px 5%;color:#7c756a;font-size:11px;line-height:1.6;border-top:1px solid var(--line);background:#f8f6f2}
+#about{margin-top:48px;padding:44px 0 8px;border-top:1px solid var(--line);scroll-margin-top:90px}
+#about h2{font:600 34px "Cormorant Garamond",serif;margin:0 0 12px}#about .lead{max-width:640px;font-size:16px;line-height:1.7;color:#5a544b;margin:0 0 30px}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:4px;background:var(--panel)}.about-grid div{padding:24px;border-right:1px solid var(--line)}.about-grid div:last-child{border:0}.about-grid h3{font:600 22px "Cormorant Garamond",serif;margin:0 0 8px;color:var(--gold2)}.about-grid p{margin:0;font-size:14px;line-height:1.65;color:var(--muted)}
+.about-contact{margin:22px 0 0;font-size:14px;color:var(--muted)}.about-contact a{color:var(--gold2);border-bottom:1px solid var(--gold)}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr}.about-grid div{border-right:0;border-bottom:1px solid var(--line)}.about-grid div:last-child{border:0}#about h2{font-size:28px}}footer{text-align:center;padding:22px 5%;color:#7c756a;font-size:11px;line-height:1.6;border-top:1px solid var(--line);background:#f8f6f2}
 .overlay{display:none;position:fixed;inset:0;background:#0007;z-index:8;justify-content:flex-end}.panel{background:var(--panel);width:min(410px,100%);height:100%;padding:24px;overflow:auto;border-left:1px solid var(--line)}.panelhead{display:flex;justify-content:space-between;align-items:center}.panelhead h2{font:600 26px "Cormorant Garamond",serif;margin:0}.close{border:1px solid var(--line);background:var(--raise);color:var(--ink);border-radius:50%;font-size:20px;width:34px;height:34px}.cartitem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:13px}.cartitem button{border:1px solid var(--line);background:var(--raise);color:var(--ink);border-radius:3px;padding:3px 8px}.total{font-weight:600;display:flex;justify-content:space-between;margin:20px 0;font-size:17px;color:var(--gold2)}
 .panel input,.panel textarea{width:100%;padding:11px;margin:6px 0 13px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--ink);font-size:14px}.panel label{font-size:12px;font-weight:500;color:var(--muted)}.panel .add{margin-top:10px}
 .auth-overlay{display:none;position:fixed;inset:0;background:radial-gradient(circle at 50% 30%,#ffffff 0%,#f1ebe1 80%);z-index:12;align-items:center;justify-content:center;padding:16px;overflow:auto}
@@ -89,7 +93,16 @@ a.add{display:block;text-align:center}.buy-daraz{background:transparent;color:va
  </section>
  <div class="section-head"><h2>Our Latest Products</h2><a class="view" href="#products">View all</a></div>
  <section class="products" id="products"></section>
- <section id="about">ShopNova — Smart Shopping, Better Living. A simple, stylish place to discover your next favourite thing.</section>
+ <section id="about">
+  <h2>About ShopNova</h2>
+  <p class="lead">ShopNova is a small, hand-picked store for everyday essentials. From wireless earbuds and smart watches to handy home gadgets, we search through the crowd so you do not have to, and show you useful products at fair prices in one clean place.</p>
+  <div class="about-grid">
+   <div><h3>What we do</h3><p>We choose products that are practical and good value, then list them with clear descriptions and prices so you can decide quickly.</p></div>
+   <div><h3>How ordering works</h3><p>When you tap Buy on Daraz, you finish your order on Daraz. Payment, delivery and returns are handled by Daraz and its sellers.</p></div>
+   <div><h3>Our promise</h3><p>Honest product details and no hidden fees. ShopNova may earn a small commission from Daraz when you buy through our links, at no extra cost to you.</p></div>
+  </div>
+  <p class="about-contact">Questions or product suggestions? Write to us at <a href="mailto:your@email.com">your@email.com</a></p>
+ </section>
 </main>
 <footer>© 2026 ShopNova. Affiliate disclosure: ShopNova may earn a commission when you buy through links to Daraz, at no extra cost to you. Prices and availability are set by Daraz and may change.</footer>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><div class="panel"><div class="panelhead"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart"></div><div class="total"><span>Total</span><span id="total">Rs. 0</span></div><h3>Cash on Delivery</h3><form onsubmit="checkout(event)"><label>Your name</label><input required placeholder="Full name"><label>Phone</label><input required type="tel" placeholder="03XXXXXXXXX"><label>Address</label><textarea required rows="3" placeholder="Delivery address"></textarea><button class="add">Place Demo Order</button><p style="font-size:11px;color:#7c756a">Demo only. This form does not send a real order or payment.</p></form></div></div>
