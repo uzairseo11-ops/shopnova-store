@@ -32,6 +32,7 @@ main{max-width:1500px;margin:auto;padding:18px 4% 48px}
 .heart{position:absolute;right:12px;top:10px;border:0;background:#ffffffed;color:#222;font-size:22px;width:34px;height:34px;border-radius:50%}
 .details{padding:12px 13px 14px}.name-row{display:flex;align-items:center;justify-content:space-between;gap:5px}.name{font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rating{font-size:11px;color:#d69a2d;white-space:nowrap}.desc{font-size:11px;line-height:1.45;color:#777;margin:7px 0 10px;height:30px;overflow:hidden}
 .buy-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:5px}.price{font-size:16px;color:#171717;font-weight:900}.old{font-size:10px;color:#999;text-decoration:line-through;margin-left:5px}.stock{font-size:10px;color:#087443;background:#e4f4e9;padding:5px 8px;border-radius:15px;white-space:nowrap}.add{width:100%;border:0;border-radius:8px;background:#171717;color:#fff;padding:11px 6px;font-size:11px;font-weight:800}.add:hover{background:#9c713e}
+a.add{display:block;text-align:center}.buy-daraz{background:#f85606}.buy-daraz:hover{background:#d44800}
 #about{text-align:center;color:#777;font-size:12px;margin-top:35px;padding:24px;border-top:1px solid var(--line)}footer{text-align:center;padding:20px;color:#777;font-size:11px;border-top:1px solid var(--line);background:#faf9f7}
 .overlay{display:none;position:fixed;inset:0;background:#17171788;z-index:8;justify-content:flex-end}.panel{background:#fff;width:min(410px,100%);height:100%;padding:22px;overflow:auto;box-shadow:-12px 0 35px #0002}.panelhead{display:flex;justify-content:space-between;align-items:center}.panelhead h2{font-size:22px}.close{border:0;background:#f0ede8;border-radius:50%;font-size:20px;width:34px;height:34px}.cartitem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;font-size:12px}.cartitem button{border:1px solid #ddd;background:white;border-radius:5px;padding:3px 8px}.total{font-weight:900;display:flex;justify-content:space-between;margin:20px 0;font-size:16px}.panel input,.panel textarea{width:100%;padding:11px;margin:6px 0 13px;border:1px solid #ddd;border-radius:8px;font:13px Arial}.panel label{font-size:12px;font-weight:800}.panel .add{margin-top:10px}
 .auth-overlay{display:none;position:fixed;inset:0;background:#17171788;z-index:12;align-items:center;justify-content:center;padding:16px}.auth-box{width:min(420px,100%);background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 60px #0003}.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.auth-top h2{margin:0;font-size:22px}.auth-tabs{display:flex;gap:8px;margin:16px 0}.auth-tabs button{flex:1;border:1px solid #e5e1db;background:#f7f5f1;padding:10px;border-radius:9px;font-weight:800;color:#333}.auth-tabs button.active{background:#171717;color:#fff;border-color:#171717}.auth-box label{display:block;font-size:12px;font-weight:800;margin:12px 0 5px}.auth-box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;font:14px Arial}.auth-submit{width:100%;margin-top:16px;border:0;border-radius:9px;background:#171717;color:#fff;padding:12px;font-weight:800}.auth-submit:disabled{opacity:.6}.google-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;padding:11px 14px;border:1px solid #dedbd5;border-radius:9px;background:#fff;color:#222;font-size:13px;font-weight:800;cursor:pointer}.google-btn:hover{background:#faf9f7}.google-g{font-weight:900;font-size:17px;color:#4285f4}.auth-divider{display:flex;align-items:center;gap:10px;margin:13px 0;color:#999;font-size:10px}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:#e8e4de;flex:1}.google-btn:disabled{opacity:.6;cursor:wait}.auth-message{font-size:12px;line-height:1.5;color:#475467;margin-top:12px;min-height:18px}.auth-note{font-size:10px;color:#8792a2;line-height:1.5;margin-top:12px}.forgot{display:block;text-align:right;margin-top:9px;font-size:11px;color:#8c6539;font-weight:700;background:none;border:0;padding:0}
@@ -41,7 +42,7 @@ main{max-width:1500px;margin:auto;padding:18px 4% 48px}
 </style>
 </head>
 <body>
-<div class="topbar"><span>🚚 &nbsp;Free Delivery on Orders Above Rs. 2000</span><span>✓ &nbsp;Secure &amp; Easy Shopping</span><span>About &nbsp; | &nbsp; Help &nbsp; | &nbsp; Contact</span></div>
+<div class="topbar"><span>🛍️ &nbsp;Shop on ShopNova, order securely on Daraz</span><span>✓ &nbsp;Secure &amp; Easy Shopping</span><span>About &nbsp; | &nbsp; Help &nbsp; | &nbsp; Contact</span></div>
 <header>
  <a class="logo" href="#"><span class="logo-mark">S</span>Shop<span>Nova</span></a>
  <nav><a class="active" href="#">Home</a><a href="#products">Shop</a><a href="#products">New Arrivals</a><a href="#products">Deals</a><a href="#about">About</a></nav>
@@ -55,10 +56,10 @@ main{max-width:1500px;margin:auto;padding:18px 4% 48px}
   <div class="sale">UP TO <b>50%</b> OFF</div>
  </section>
  <section class="benefits">
-  <div class="benefit"><span class="ico">🚚</span><div><b>Free Delivery</b><small>On orders above Rs. 2000</small></div></div>
-  <div class="benefit"><span class="ico">♢</span><div><b>Secure Payments</b><small>Your data is safe with us</small></div></div>
+  <div class="benefit"><span class="ico">🚚</span><div><b>Daraz Delivery</b><small>Delivered by Daraz sellers</small></div></div>
+  <div class="benefit"><span class="ico">♢</span><div><b>Secure Payments</b><small>Pay safely on Daraz</small></div></div>
   <div class="benefit"><span class="ico">☏</span><div><b>24/7 Support</b><small>We are here to help</small></div></div>
-  <div class="benefit"><span class="ico">▣</span><div><b>Easy Returns</b><small>Hassle-free returns</small></div></div>
+  <div class="benefit"><span class="ico">▣</span><div><b>Easy Returns</b><small>Per Daraz return policy</small></div></div>
  </section>
  <div class="section-head"><h2>Shop by Category</h2><a class="view" href="#products">View All →</a></div>
  <section class="categories">
@@ -76,7 +77,7 @@ main{max-width:1500px;margin:auto;padding:18px 4% 48px}
  <section class="products" id="products"></section>
  <section id="about">ShopNova — Smart Shopping, Better Living. A simple, stylish place to discover your next favourite thing.</section>
 </main>
-<footer>© 2026 ShopNova. Product details and prices are sample content.</footer>
+<footer>© 2026 ShopNova. Affiliate disclosure: ShopNova may earn a commission when you buy through links to Daraz, at no extra cost to you. Prices and availability are set by Daraz and may change.</footer>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><div class="panel"><div class="panelhead"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart"></div><div class="total"><span>Total</span><span id="total">Rs. 0</span></div><h3>Cash on Delivery</h3><form onsubmit="checkout(event)"><label>Your name</label><input required placeholder="Full name"><label>Phone</label><input required type="tel" placeholder="03XXXXXXXXX"><label>Address</label><textarea required rows="3" placeholder="Delivery address"></textarea><button class="add">Place Demo Order</button><p style="font-size:10px;color:#8792a2">Demo only. This form does not send a real order or payment.</p></form></div></div>
 <div class="auth-overlay" id="authOverlay" onclick="if(event.target===this)closeAuth()">
  <section class="auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
@@ -175,17 +176,54 @@ document.getElementById("authForm").addEventListener("submit",async function(e){
   finally{submit.disabled=false;submit.textContent=authMode==="login"?"Login":"Create account";}
 });
 const products=[
-{id:1,name:"Wireless Earbuds",desc:"Clear sound for music, calls and everyday use.",price:2999,old:4999,image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85",tag:"Best Seller",tone:"gold"},
-{id:2,name:"Smart Watch",desc:"A modern everyday watch with useful features.",price:3499,old:5499,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",tag:"New Arrival"},
-{id:3,name:"Travel Backpack",desc:"A practical backpack for school, work and travel.",price:1899,old:3499,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85",tag:"Popular"},
-{id:4,name:"Running Shoes",desc:"Comfortable sporty shoes for everyday movement.",price:3299,old:4299,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",tag:"Hot Deal",tone:"red"},
-{id:5,name:"Classic Sunglasses",desc:"Simple everyday style with a timeless frame.",price:1499,old:1999,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=85",tag:"Trending"},
-{id:6,name:"Bluetooth Speaker",desc:"Compact speaker for your favourite playlists.",price:2799,old:3499,image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85",tag:"New Arrival"},
-{id:7,name:"Everyday Sneakers",desc:"Versatile casual sneakers for daily outfits.",price:2999,old:3999,image:"https://images.unsplash.com/photo-149-5555961986-6d4c1ecb7be3?auto=format&fit=crop&w=700&q=85",tag:"Popular"},
-{id:8,name:"Gift Set",desc:"A thoughtful gift for someone special.",price:1999,old:2599,image:"https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85",tag:"Gift Pick"}
+{
+id:1,
+name:"Wireless Bluetooth Earbuds",
+desc:"Wireless earbuds for music and everyday calls.",
+price:1199,
+image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85",
+tag:"Best Seller",
+darazUrl:"https://www.daraz.pk/products/5-tws-5-anc-enc-hi-fi-hd-hd-c-led-30h-i1980489859-s14069494240.html"
+},
+{
+id:2,
+name:"Smart Watch",
+desc:"A modern smartwatch for everyday use.",
+price:1968,
+image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",
+tag:"Popular",
+darazUrl:"https://www.daraz.pk/products/9-i1974034001-s14063902494.html"
+},
+{
+id:3,
+name:"Portable Mini Blender",
+desc:"Portable rechargeable blender for daily use.",
+price:1199,
+image:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=700&q=85",
+tag:"Trending",
+darazUrl:"https://www.daraz.pk/products/usb-rechargeable-juicer-blender-6-blades-electric-blender-mini-portable-personal-size-usb-rechargeable-mixer-380ml-food-grade-water-bottle-portable-fruit-juicer-machine-double-click-start-by-bee-to-door-i947733861-s4012354533.html"
+},
+{
+id:4,
+name:"Rechargeable LED Lamp",
+desc:"A useful rechargeable lamp for your home.",
+price:699,
+image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=85",
+tag:"Hot Deal",
+darazUrl:"https://www.daraz.pk/products/360-3-i943944043-s4008717800.html"
+},
+{
+id:5,
+name:"Mobile Phone Holder",
+desc:"A convenient phone holder for everyday use.",
+price:499,
+image:"https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=85",
+tag:"New Arrival",
+darazUrl:"https://www.daraz.pk/products/-i1974070525-s14063990287.html"
+}
 ];
 let cart={};let wishlist=new Set();const money=n=>"Rs. "+n.toLocaleString("en-PK");
-function render(){const q=document.getElementById("search").value.toLowerCase();document.getElementById("products").innerHTML=products.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(q)).map(p=>`<article class="card"><div class="visual"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag ${p.tone||""}">${p.tag}</span><button class="heart" aria-label="Add ${p.name} to wishlist" onclick="toggleWish(${p.id},this)">${wishlist.has(p.id)?"♥":"♡"}</button></div><div class="details"><div class="name-row"><span class="name">${p.name}</span><span class="rating">★ 4.8</span></div><p class="desc">${p.desc}</p><div class="buy-row"><span><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></span><span class="stock">In Stock</span></div><button class="add" onclick="add(${p.id})">Add to Cart &nbsp; +</button></div></article>`).join("")||"<p>No matching products.</p>";}
+function render(){const q=document.getElementById("search").value.toLowerCase();document.getElementById("products").innerHTML=products.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(q)).map(p=>`<article class="card"><div class="visual"><img src="${p.image}" alt="${p.name}" loading="lazy"><span class="tag ${p.tone||""}">${p.tag}</span><button class="heart" aria-label="Add ${p.name} to wishlist" onclick="toggleWish(${p.id},this)">${wishlist.has(p.id)?"♥":"♡"}</button></div><div class="details"><div class="name-row"><span class="name">${p.name}</span><span class="rating">★ 4.8</span></div><p class="desc">${p.desc}</p><div class="buy-row"><span><span class="price">${money(p.price)}</span>${p.old?`<span class="old">${money(p.old)}</span>`:""}</span><span class="stock">On Daraz</span></div><a class="add buy-daraz" href="${p.darazUrl}" target="_blank" rel="noopener noreferrer sponsored">Buy on Daraz &nbsp; →</a></div></article>`).join("")||"<p>No matching products.</p>";}
 function toggleWish(id,el){if(wishlist.has(id)){wishlist.delete(id);el.textContent="♡"}else{wishlist.add(id);el.textContent="♥"}}
 function showWishlist(){alert(wishlist.size?"Wishlist: "+products.filter(p=>wishlist.has(p.id)).map(p=>p.name).join(", "):"Your wishlist is empty. Tap a heart on a product to save it.")}
 function add(id){cart[id]=(cart[id]||0)+1;update();openCart()}
